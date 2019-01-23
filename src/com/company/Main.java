@@ -8,48 +8,47 @@ import java.util.Scanner;
  * You will continue creating an interactive chat-bot type program. Eliza is a therapist program that interacts with the
  * user. Your program will need to evaluate what the user asks and turn the user's input into a question that sounds like
  * the therapist really cares.
- *
+ * <p>
  * Use HashMaps or String arrays to loop through user's input and implement the following:
- *
+ * <p>
  * Replacements:
- *
+ * <p>
  * replace i with you
  * replace me with you
  * replace my with your
  * replace am with are
  * We will continue to build on top of this application throughout the week.
- *
+ * <p>
  * Here's how the replacement works:
- *
+ * <p>
  * The user enters something at the prompt: "my teacher hates me"
- *
+ * <p>
  * The program will loop through that string and replace "my" with "your" and "me" with "you" and then prepend the
  * qualifier to the replacement string. So, my teacher hates me becomes "Why do you say that your teacher hates you?"
  * The replacement method returns the same words as the user entered only the replacement words have been swapped. Then
  * the qualifier is prepended to the user's words.
- *
+ * <p>
  * Spend some time thinking how you would search through a string and replacing specific words. Hint: read about the
  * split
- *
  */
 public class Main {
 
     public static void main(String[] args) {
         Map<String, String> myMap = new HashMap<>();
-        myMap.put("i","you");
-        myMap.put("me","you");
-        myMap.put("my","your");
-        myMap.put("am","are");
+        myMap.put("i", "you");
+        myMap.put("me", "you");
+        myMap.put("my", "your");
+        myMap.put("am", "are");
 
-	    Scanner keyboard = new Scanner(System.in);
-        String question,answer;
+        Scanner keyboard = new Scanner(System.in);
+        String question, answer;
         System.out.print("Good day. What is your problem? ");
         while (true) {
             System.out.print("Enter your response here or Q to quit: ");
             question = keyboard.nextLine().toLowerCase();
             answer = "";
-            for (String retval: question.split(" ")) {
-                if(myMap.containsKey(retval)){
+            for (String retval : question.split(" ")) {
+                if (myMap.containsKey(retval)) {
                     answer += myMap.get(retval) + " ";
                 } else {
                     answer += retval + " ";
