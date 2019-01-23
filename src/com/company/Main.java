@@ -29,7 +29,7 @@ import java.util.Scanner;
  * the qualifier is prepended to the user's words.
  *
  * Spend some time thinking how you would search through a string and replacing specific words. Hint: read about the
- * split  (Links to an external site.)Links to an external site.operator.
+ * split
  *
  */
 public class Main {
@@ -42,12 +42,12 @@ public class Main {
         myMap.put("am","are");
 
 	    Scanner keyboard = new Scanner(System.in);
-        String question, answer = "";
+        String question,answer;
         System.out.print("Good day. What is your problem? ");
         while (true) {
             System.out.print("Enter your response here or Q to quit: ");
             question = keyboard.nextLine().toLowerCase();
-
+            answer = "";
             for (String retval: question.split(" ")) {
                 if(myMap.containsKey(retval)){
                     answer += myMap.get(retval) + " ";
@@ -55,15 +55,11 @@ public class Main {
                     answer += retval + " ";
                 }
             }
-
             System.out.println(answer);
 
             if (question.equalsIgnoreCase("I am feeling great") | question.equals("q")) {
                 break;
-            } else {
-                System.out.println(question);
             }
         }
-        System.out.println(">>> END");
     }
 }
